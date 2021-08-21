@@ -2173,6 +2173,7 @@ from akshare.stock.stock_info import (
     stock_info_sz_name_code,
     stock_info_sz_change_name,
     stock_info_change_name,
+    stock_company_summary_info,
 )
 
 """

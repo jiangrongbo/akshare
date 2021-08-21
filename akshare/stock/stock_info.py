@@ -10,6 +10,7 @@ from io import BytesIO
 
 import pandas as pd
 import requests
+import time
 
 
 def stock_info_sz_name_code(indicator: str = "A股列表") -> pd.DataFrame:
@@ -24,10 +25,10 @@ def stock_info_sz_name_code(indicator: str = "A股列表") -> pd.DataFrame:
     url = "http://www.szse.cn/api/report/ShowReport"
     indicator_map = {"A股列表": "tab1", "B股列表": "tab2", "CDR列表": "tab3", "AB股列表": "tab4"}
     params = {
-         "SHOWTYPE": "xlsx",
-         "CATALOGID": "1110",
-         "TABKEY": indicator_map[indicator],
-         "random": "0.6935816432433362",
+        "SHOWTYPE": "xlsx",
+        "CATALOGID": "1110",
+        "TABKEY": indicator_map[indicator],
+        "random": "0.6935816432433362",
     }
     r = requests.get(url, params=params)
     with warnings.catch_warnings(record=True):
@@ -35,7 +36,8 @@ def stock_info_sz_name_code(indicator: str = "A股列表") -> pd.DataFrame:
         temp_df = pd.read_excel(BytesIO(r.content))
     if len(temp_df) > 10:
         if indicator == "A股列表":
-            temp_df["A股代码"] = temp_df["A股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(6).str.replace("000nan", "")
+            temp_df["A股代码"] = temp_df["A股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(
+                6).str.replace("000nan", "")
             temp_df = temp_df[[
                 '板块',
                 'A股代码',
@@ -46,7 +48,8 @@ def stock_info_sz_name_code(indicator: str = "A股列表") -> pd.DataFrame:
                 '所属行业',
             ]]
         elif indicator == "B股列表":
-            temp_df["B股代码"] = temp_df["B股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(6).str.replace("000nan", "")
+            temp_df["B股代码"] = temp_df["B股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(
+                6).str.replace("000nan", "")
             temp_df = temp_df[[
                 '板块',
                 'B股代码',
@@ -57,8 +60,10 @@ def stock_info_sz_name_code(indicator: str = "A股列表") -> pd.DataFrame:
                 '所属行业',
             ]]
         elif indicator == "AB股列表":
-            temp_df["A股代码"] = temp_df["A股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(6).str.replace("000nan", "")
-            temp_df["B股代码"] = temp_df["B股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(6).str.replace("000nan", "")
+            temp_df["A股代码"] = temp_df["A股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(
+                6).str.replace("000nan", "")
+            temp_df["B股代码"] = temp_df["B股代码"].astype(str).str.split('.', expand=True).iloc[:, 0].str.zfill(
+                6).str.replace("000nan", "")
             temp_df = temp_df[[
                 '板块',
                 'A股代码',
@@ -246,6 +251,27 @@ def stock_info_a_code_name() -> pd.DataFrame:
     big_df = big_df.append(stock_kcb, ignore_index=True)
     big_df.columns = ["code", "name"]
     return big_df
+
+
+def stock_company_summary_info() -> pd.DataFrame:
+    """
+    抓取上市公司基本信息
+    :return: pandas.DataFrame
+    """
+    start_time = time.time()  # 获取程序开始运行时间
+    df = pd.DataFrame()  # 定义一个空的DataFrame用于存储数据
+    try:
+        for i in range(1, 250):  # 爬取全部187页数据，设置为200页，确保都覆盖
+            url = 'http://s.askci.com/stock/a/?reportTime=2021-03-31&pageNum={i}'.format(i=i)  # 日期可以改，可获取季度数据
+            df = pd.concat([df, pd.read_html(url)[3].loc[:, :]])  # 第1个表格故填[0],经观察发现所需表格是网页中第4个表格，故为[3]。获得后纵向追加到df中
+            time.sleep(1)  # 每隔0.5秒访问一次，应对反爬措施
+            endtime = time.time() - start_time
+            print('正在获取上市公司基本信息表第' + str(i) + '页', '已运行%.2f秒' % endtime)
+    except:
+        pass
+    df['股票代码'] = df['股票代码'].astype('str').str.zfill(6)  # 将原本的int数据类型转换为文本，补齐股票代码为6位，用的时候必须加上.str前缀
+    df.drop(['序号', '招股书', '公司财报'], axis=1, inplace=True)  # 删除多余的列，axis=1（按列方向操作）、inplace=True（修改完数据，在原数据上保存）
+    return df
 
 
 if __name__ == '__main__':
