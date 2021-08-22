@@ -253,7 +253,7 @@ def stock_info_a_code_name() -> pd.DataFrame:
     return big_df
 
 
-def stock_company_summary_info() -> pd.DataFrame:
+def stock_company_summary_info(page_num: int = 1) -> pd.DataFrame:
     """
     抓取上市公司基本信息
     :return: pandas.DataFrame
@@ -261,7 +261,7 @@ def stock_company_summary_info() -> pd.DataFrame:
     start_time = time.time()  # 获取程序开始运行时间
     df = pd.DataFrame()  # 定义一个空的DataFrame用于存储数据
     try:
-        for i in range(1, 250):  # 爬取全部187页数据，设置为200页，确保都覆盖
+        for i in range(page_num, 250):  # 爬取全部187页数据，设置为200页，确保都覆盖
             url = 'http://s.askci.com/stock/a/?reportTime=2021-03-31&pageNum={i}'.format(i=i)  # 日期可以改，可获取季度数据
             df = pd.concat([df, pd.read_html(url)[3].loc[:, :]])  # 第1个表格故填[0],经观察发现所需表格是网页中第4个表格，故为[3]。获得后纵向追加到df中
             time.sleep(1)  # 每隔0.5秒访问一次，应对反爬措施
