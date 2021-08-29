@@ -2384,4 +2384,30 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 1.0.66: fix: fix macro_cons_opec_month interface
 
 1.0.67: fix: fix futures_sgx_daily interface
+
+1.0.68: fix: remove agoyal_stock_return interface
+
+1.0.69: fix: remove bank_rank_banker interface
+
+1.0.70: fix: remove watch_jinshi_quotes interface
+
+1.0.71: fix: remove watch_argus interface
+
+1.0.72: fix: fix amac_fund_abs interface
+
+1.0.73: add: add bond_cash_summary_sse interface
+
+1.0.74: fix: fix bond_zh_hs_cov_spot interface
+
+1.0.75: fix: fix bond_futures_deliverable_coupons interface
+
+1.0.76: fix: fix stock_financial_hk_analysis_indicator_em interface
+
+1.0.77: fix: fix macro_china_m2_yearly interface
+
+1.0.78: add: add reits_realtime_em, reits_info_jsl interface
+
+1.0.79: fix: fix news_cctv interface
+
+1.0.80: add: add stock_zh_a_hist_min_em, stock_zh_a_hist_pre_min_em interface
 ```

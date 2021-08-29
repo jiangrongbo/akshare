@@ -1486,9 +1486,22 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 1.0.65: fix: fix stock_em_gpzy_pledge_ratio_detail interface
 1.0.66: fix: fix macro_cons_opec_month interface
 1.0.67: fix: fix futures_sgx_daily interface
+1.0.68: fix: remove agoyal_stock_return interface
+1.0.69: fix: remove bank_rank_banker interface
+1.0.70: fix: remove watch_jinshi_quotes interface
+1.0.71: fix: remove watch_argus interface
+1.0.72: fix: fix amac_fund_abs interface
+1.0.73: add: add bond_cash_summary_sse interface
+1.0.74: fix: fix bond_zh_hs_cov_spot interface
+1.0.75: fix: fix bond_futures_deliverable_coupons interface
+1.0.76: fix: fix stock_financial_hk_analysis_indicator_em interface
+1.0.77: fix: fix macro_china_m2_yearly interface
+1.0.78: add: add reits_realtime_em, reits_info_jsl interface
+1.0.79: fix: fix news_cctv interface
+1.0.80: add: add stock_zh_a_hist_min_em, stock_zh_a_hist_pre_min_em interface
 """
 
-__version__ = "1.0.67"
+__version__ = "1.0.80"
 __author__ = "Albert King"
 
 import sys
@@ -1498,6 +1511,11 @@ if sys.version_info < (3, 7):
     sys.exit(1)
 
 del sys
+
+"""
+REITs
+"""
+from akshare.reits.reits_basic import reits_info_jsl, reits_realtime_em
 
 """
 鸡蛋价格数据
@@ -1656,6 +1674,8 @@ from akshare.stock_feature.stock_em_hist import (
     stock_hk_hist,
     stock_us_spot_em,
     stock_us_hist,
+    stock_zh_a_hist_min_em,
+    stock_zh_a_hist_pre_min_em,
 )
 
 """
@@ -1894,14 +1914,9 @@ from akshare.futures.futures_to_spot import (
 from akshare.fund.fund_em_portfolio import fund_em_portfolio_hold
 
 """
-银行-全球银行排名
-"""
-from akshare.bank.bank_banker import bank_rank_banker
-
-"""
 债券概览
 """
-from akshare.bond.bond_summary import bond_deal_summary_sse
+from akshare.bond.bond_summary import bond_deal_summary_sse, bond_cash_summary_sse
 
 """
 新闻-个股新闻
@@ -2249,12 +2264,6 @@ from akshare.stock_feature.stock_em_dxsyl import stock_em_dxsyl, stock_em_xgsglb
 article
 """
 from akshare.article.fred_md import fred_md, fred_qd
-from akshare.article.agoyal import agoyal_stock_return
-
-"""
-argus
-"""
-from akshare.ws.argus import watch_argus
 
 """
 covid_19 CSSE
@@ -2271,7 +2280,7 @@ from akshare.event.covid import (
 """
 futures_cfmmc
 """
-from akshare.futures.futures_cfmmc import futures_index_dict, futures_index_cfmmc
+from akshare.futures.futures_cfmmc import futures_index_cscidx_map, futures_index_cscidx
 
 """
 futures_em_spot_stock
@@ -2719,7 +2728,6 @@ from akshare.air.time_and_date import sunrise_daily, sunrise_monthly
 金十财经-实时监控
 """
 from akshare.ws.js_ws_fx import watch_jinshi_fx
-from akshare.ws.js_ws_quotes import watch_jinshi_quotes
 
 """
 新浪-指数实时行情和历史行情

@@ -8,9 +8,9 @@
 
 ```
  # 交易所期货数据
- "get_cffex_daily",  # 获取中国金融期货交易所每日交易数据
- "get_cffex_rank_table",  # 获取中国金融期货交易所前20会员持仓数据明细
- "get_czce_daily",  # 获取郑州商品交易所每日交易数据
+ "get_cffex_daily",  # 中国金融期货交易所每日交易数据
+ "get_cffex_rank_table",  # 中国金融期货交易所前20会员持仓数据明细
+ "get_czce_daily",  # 郑州商品交易所每日交易数据
  "get_czce_rank_table",  # 获取郑州商品交易所前20会员持仓数据明细
  "get_dce_daily",  # 获取大连商品交易所每日交易数据
  "get_ine_daily",  # 获取上海国际能源交易中心每日交易数据
@@ -126,7 +126,6 @@
  "stock_zh_a_tick_163"  # A 股票分笔行情数据(近5个交易日)-163
  # Websocket 实时监控
  "watch_jinshi_fx"  # 外汇实时接口
- "watch_jinshi_quotes"  # 行情报价接口
  # 世界各地区日出和日落数据-日
  "weather_daily"  # 每日日出和日落数据
  # 世界各地区日出和日落数据-月
@@ -457,8 +456,6 @@
  "futures_spot_stock"  # 现货与股票接口
  # 中国期货市场监控中心
  "futures_index_cfmmc"  # 中国期货市场监控中心-指数
- # 阿尔戈斯全网监控
- "watch_argus"  # 阿尔戈斯全网监控
  # 打新收益率
  "stock_em_dxsyl"  # 打新收益率
  "stock_em_xgsglb"  # 新股申购与中签查询
@@ -648,8 +645,6 @@
  "bond_deal_summary_sse"  # 上登债券信息网-债券成交概览
  # 中国货币供应量
  "macro_china_money_supply"  # 中国货币供应量
- # 银行排名
- "bank_rank_banker"  # 全球银行排名数据及各项指标
  # 期货交割和期转现
  "futures_to_spot_czce"  # 郑商所期转现
  "futures_to_spot_shfe"  # 上期所期转现
@@ -849,6 +844,12 @@
  "futures_egg_price_yearly"  # 各年度产区鸡蛋价格走势
  "futures_egg_price"  # 2015-2021年鸡蛋价格走势图
  "futures_egg_price_area"  # 各主产区鸡蛋均价
+ # REITs
+ "reits_info_jsl"  #  REITs-信息
+ "reits_realtime_em"  #  REITs-行情
+ # 股票分时数据
+ "stock_zh_a_hist_min_em"  # 东财-股票分时
+ "stock_zh_a_hist_pre_min_em"  # 东财-股票盘前分时
 ```
 
 ## 案例演示
