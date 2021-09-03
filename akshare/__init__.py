@@ -1499,9 +1499,13 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 1.0.78: add: add reits_realtime_em, reits_info_jsl interface
 1.0.79: fix: fix news_cctv interface
 1.0.80: add: add stock_zh_a_hist_min_em, stock_zh_a_hist_pre_min_em interface
+1.0.81: add: add stock_us_hist_min_em, stock_hk_hist_min_em interface
+1.0.82: fix: fix bond_zh_cov interface
+1.0.83: fix: fix macro_china interface
+1.0.84: add: add bond_zh_cov_info interface
 """
 
-__version__ = "1.0.80"
+__version__ = "1.0.84"
 __author__ = "Albert King"
 
 import sys
@@ -1676,6 +1680,8 @@ from akshare.stock_feature.stock_em_hist import (
     stock_us_hist,
     stock_zh_a_hist_min_em,
     stock_zh_a_hist_pre_min_em,
+    stock_hk_hist_min_em,
+    stock_us_hist_min_em,
 )
 
 """
@@ -2412,6 +2418,7 @@ from akshare.bond.zh_bond_cov_sina import (
     bond_zh_hs_cov_spot,
     bond_cov_comparison,
     bond_zh_cov,
+    bond_zh_cov_info,
 )
 from akshare.bond.bond_convert import bond_cov_jsl
 
