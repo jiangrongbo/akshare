@@ -6,6 +6,7 @@ Desc: 东方财富网-行情首页-上证 A 股-每日行情
 """
 import requests
 import pandas as pd
+import arrow
 
 
 def stock_zh_a_spot_em() -> pd.DataFrame:
@@ -65,7 +66,7 @@ def stock_zh_a_spot_em() -> pd.DataFrame:
                        "_",
                        ]
     temp_df.reset_index(inplace=True)
-    temp_df['index'] = range(1, len(temp_df)+1)
+    temp_df['index'] = range(1, len(temp_df) + 1)
     temp_df.rename(columns={'index': "序号"}, inplace=True)
     temp_df = temp_df[[
         "序号",
@@ -152,10 +153,10 @@ def _code_id_map() -> dict:
 
 
 def stock_zh_a_hist(
-    symbol: str = "000001",
-    start_date: str = "19700101",
-    end_date: str = "22220101",
-    adjust: str = "",
+        symbol: str = "000001",
+        start_date: str = "19700101",
+        end_date: str = "22220101",
+        adjust: str = "",
 ) -> pd.DataFrame:
     """
     东方财富网-行情首页-上证 A 股-每日行情
@@ -219,6 +220,13 @@ def stock_zh_a_hist(
         }
     )
     return temp_df
+
+
+def stock_zh_a_m2_hist(symbol: str = "000001") -> pd.DataFrame:
+    now = arrow.now()
+    end_date = now.strftime("%Y%m%d")
+    start_date = now.shift(months=-2).strftime("%Y%m%d")
+    return stock_zh_a_hist(symbol, start_date, end_date)
 
 
 def stock_zh_a_hist_min_em(symbol: str = "000001") -> pd.DataFrame:
@@ -364,9 +372,9 @@ def stock_hk_spot_em() -> pd.DataFrame:
         "_",
         "_",
         "_",
-                       ]
+    ]
     temp_df.reset_index(inplace=True)
-    temp_df['index'] = range(1, len(temp_df)+1)
+    temp_df['index'] = range(1, len(temp_df) + 1)
     temp_df.rename(columns={'index': "序号"}, inplace=True)
     temp_df = temp_df[[
         "序号",
@@ -550,9 +558,9 @@ def stock_us_spot_em() -> pd.DataFrame:
         "_",
         "_",
         "_",
-                       ]
+    ]
     temp_df.reset_index(inplace=True)
-    temp_df['index'] = range(1, len(temp_df)+1)
+    temp_df['index'] = range(1, len(temp_df) + 1)
     temp_df.rename(columns={'index': "序号"}, inplace=True)
     temp_df["代码"] = temp_df["编码"].astype(str) + '.' + temp_df["简称"]
     temp_df = temp_df[[
