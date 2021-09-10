@@ -232,7 +232,7 @@ def stock_zh_a_m2_hist(symbol: str = "000001") -> pd.DataFrame:
     now = arrow.now()
     end_date = now.strftime("%Y%m%d")
     start_date = now.shift(months=-2).strftime("%Y%m%d")
-    return stock_zh_a_hist(symbol, start_date, end_date)
+    return stock_zh_a_hist(symbol, start_date = start_date, end_date = end_date)
 
 
 def stock_zh_a_hist_min_em(
