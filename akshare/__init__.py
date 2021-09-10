@@ -1503,9 +1503,27 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 1.0.82: fix: fix bond_zh_cov interface
 1.0.83: fix: fix macro_china interface
 1.0.84: add: add bond_zh_cov_info interface
+1.0.85: fix: fix stock_report_fund_hold interface
+1.0.86: fix: fix stock_em_zt_pool_dtgc interface
+1.0.87: fix: fix macro_china_swap_rate interface
+1.0.88: fix: fix stock_zh_a_hist_min_em interface
+1.0.89: fix: fix stock_hk_hist_min_em interface
+1.0.90: fix: fix stock_us_hist_min_em interface
+1.0.91: fix: fix stock_zh_a_hist_min_em interface
+1.0.92: fix: fix stock_zh_a_hist interface
+1.0.93: fix: fix stock_hk_hist_min_em interface
+1.0.94: fix: fix stock_zh_a_new interface
+1.0.95: fix: fix stock_zh_a_daily interface
+1.0.96: add: add stock_zh_a_st_em interface
+1.0.97: fix: fix futures_spot_stock interface
+1.0.98: add: add stock_zh_a_new_em interface
+1.0.99: fix: fix stock_wc_hot_rank interface
+1.1.1: add: add index_investing_global_from_url interface
+1.1.2: add: add stock_us_pink_spot_em interface
+1.1.3: add: add stock_us_famous_spot_em interface
 """
 
-__version__ = "1.0.84"
+__version__ = "1.1.3"
 __author__ = "Albert King"
 
 import sys
@@ -1517,6 +1535,16 @@ if sys.version_info < (3, 7):
 del sys
 
 """
+美股-知名美股
+"""
+from akshare.stock.stock_us_famous import stock_us_famous_spot_em
+
+"""
+美股-粉单市场
+"""
+from akshare.stock.stock_us_pink import stock_us_pink_spot_em
+
+"""
 REITs
 """
 from akshare.reits.reits_basic import reits_info_jsl, reits_realtime_em
@@ -1524,7 +1552,11 @@ from akshare.reits.reits_basic import reits_info_jsl, reits_realtime_em
 """
 鸡蛋价格数据
 """
-from akshare.futures_derivative.futures_egg import futures_egg_price_yearly, futures_egg_price_area, futures_egg_price
+from akshare.futures_derivative.futures_egg import (
+    futures_egg_price_yearly,
+    futures_egg_price_area,
+    futures_egg_price,
+)
 
 """
 全部 A 股-等权重市盈率、中位数市盈率
@@ -2052,9 +2084,14 @@ from akshare.futures.futures_comex import futures_comex_inventory
 from akshare.bond.bond_futures import bond_futures_deliverable_coupons
 
 """
-A 股-次新股
+A 股-特别标的
 """
-from akshare.stock.stock_zh_a_new import stock_zh_a_new
+from akshare.stock.stock_zh_a_special import (
+    stock_zh_a_new,
+    stock_zh_a_st_em,
+    stock_zh_a_new_em,
+    stock_zh_a_stop_em,
+)
 
 """
 东方财富-注册制审核
@@ -3041,6 +3078,7 @@ from akshare.bond.bond_investing import (
 from akshare.index.index_investing import (
     index_investing_global,
     index_investing_global_country_name_url,
+    index_investing_global_from_url,
 )
 
 """

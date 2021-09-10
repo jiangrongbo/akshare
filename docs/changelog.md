@@ -2427,4 +2427,40 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
     9. macro_china_fx_reserves_yearly
 
 1.0.84: add: add bond_zh_cov_info interface
+
+1.0.85: fix: fix stock_report_fund_hold interface
+
+1.0.86: fix: fix stock_em_zt_pool_dtgc interface
+
+1.0.87: fix: fix macro_china_swap_rate interface
+
+1.0.88: fix: fix stock_zh_a_hist_min_em interface
+
+1.0.89: fix: fix stock_hk_hist_min_em interface
+
+1.0.90: fix: fix stock_us_hist_min_em interface
+
+1.0.91: fix: fix stock_zh_a_hist_min_em interface
+
+1.0.92: fix: fix stock_zh_a_hist interface
+
+1.0.93: fix: fix stock_hk_hist_min_em interface
+
+1.0.94: fix: fix stock_zh_a_new interface
+
+1.0.95: fix: fix stock_zh_a_daily interface
+
+1.0.96: add: add stock_zh_a_st_em interface
+
+1.0.97: fix: fix futures_spot_stock interface
+
+1.0.98: add: add stock_zh_a_new_em interface
+
+1.0.99: fix: fix stock_wc_hot_rank interface
+
+1.1.1: add: add index_investing_global_from_url interface
+
+1.1.2: add: add stock_us_pink_spot_em interface
+
+1.1.3: add: add stock_us_famous_spot_em interface
 ```
