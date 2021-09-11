@@ -11,7 +11,8 @@ pd.set_option('display.width', 5000)
 class StockTest(unittest.TestCase):
 
     def test_stock_history(self):
-        stock_zh_a_hist_df = ak.stock_zh_a_m2_hist("600127")
+        stock_zh_a_hist_df = ak.stock_zh_a_hist("688707")
+        print(stock_zh_a_hist_df)
 
         dif, dea, hist = ta.MACD(stock_zh_a_hist_df['收盘'].astype(float).values, fastperiod=12, slowperiod=26,
                                  signalperiod=9)

@@ -2147,7 +2147,11 @@ from akshare.fund.fund_etf import fund_etf_hist_sina, fund_etf_category_sina
 """
 交易日历
 """
-from akshare.tool.trade_date_hist import tool_trade_date_hist_sina
+from akshare.tool.trade_date_hist import (
+    tool_trade_date_hist_sina,
+    is_today_trade_day,
+    is_trade_day
+)
 
 """
 commodity option

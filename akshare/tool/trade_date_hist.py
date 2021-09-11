@@ -7,11 +7,10 @@ https://finance.sina.com.cn/realstock/company/klc_td_sh.txt
 此处可以用来更新 calendar.json 文件，注意末尾没有 "," 号
 """
 import datetime
-
 import pandas as pd
 import requests
 from py_mini_racer import py_mini_racer
-
+import arrow
 from akshare.stock.cons import hk_js_decode
 
 
@@ -37,6 +36,21 @@ def tool_trade_date_hist_sina() -> pd.DataFrame:
     temp_list.sort()
     temp_df = pd.DataFrame(temp_list, columns=['trade_date'])
     return temp_df
+
+
+def is_trade_day(date):
+    trade_date_hist_df = tool_trade_date_hist_sina()
+    if date in trade_date_hist_df['trade_date'].values:
+        return True
+    return False
+
+
+def is_today_trade_day():
+    trade_date_hist_df = tool_trade_date_hist_sina()
+    current_day = arrow.now().strftime('%Y-%m-%d')
+    if current_day in trade_date_hist_df['trade_date'].values:
+        return True
+    return False
 
 
 if __name__ == "__main__":
