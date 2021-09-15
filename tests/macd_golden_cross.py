@@ -3,8 +3,9 @@ import os
 import talib as ta
 import pysnowball as ball
 import arrow
+import akshare as ak
 
-current_day = arrow.now().strftime('%Y%M%d')
+current_day = arrow.now().strftime('%Y%m%d')
 stock_path = '/root/stock/stock_hist_data/'
 
 
@@ -32,6 +33,8 @@ def calc_macd(symbol):
 
 
 def select_stock():
+    if not ak.is_today_trade_day():
+        return
     files = os.listdir(stock_path)
 
     for file_name in files:
@@ -44,10 +47,13 @@ def select_stock():
 
 
 def create_free():
+    if not ak.is_today_trade_day():
+        return
     ball.create_free_item(current_day)
     pass
 
 
 if __name__ == "__main__":
+
     create_free()
     select_stock()

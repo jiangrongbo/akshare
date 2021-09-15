@@ -47,8 +47,8 @@ def is_trade_day(date):
 
 def is_today_trade_day():
     trade_date_hist_df = tool_trade_date_hist_sina()
-    current_day = arrow.now().strftime('%Y-%m-%d')
-    if current_day in trade_date_hist_df['trade_date'].values:
+    current_day = arrow.now().date()
+    if current_day in trade_date_hist_df['trade_date'].values.tolist():
         return True
     return False
 
