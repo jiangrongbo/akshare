@@ -27,7 +27,7 @@ def calc_macd(symbol):
             symbol = 'SH' + symbol
         else:
             symbol = 'SZ' + symbol
-        ball.add_stock_to_item(current_day, symbol)
+        ball.add_stock_to_item(current_day + 'MACD', symbol)
         print(symbol)
     pass
 
@@ -49,7 +49,7 @@ def select_stock():
 def create_free():
     if not ak.is_today_trade_day():
         return
-    ball.create_free_item(current_day)
+    ball.create_free_item(current_day + 'MACD')
     pass
 
 
