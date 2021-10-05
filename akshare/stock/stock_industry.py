@@ -61,9 +61,9 @@ def stock_sector_spot(indicator: str = "新浪行业") -> pd.DataFrame:
         "总成交量(手)",
         "总成交额(万元)",
         "股票代码",
-        "涨跌幅",
-        "当前价",
-        "涨跌额",
+        "股票涨跌幅",
+        "股票当前价",
+        "股票涨跌额",
         "股票名称",
     ]
     return temp_df
