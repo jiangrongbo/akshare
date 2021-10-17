@@ -1,7 +1,9 @@
-"""AKShare 是基于 Python 的开源财经数据接口库, 实现对股票, 期货, 期权, 基金, 债券, 外汇等金
+"""
+AKShare 是基于 Python 的开源财经数据接口库, 实现对股票, 期货, 期权, 基金, 债券, 外汇等金
 融产品的量价数据, 基本面数据和另类数据从数据采集, 数据清洗到数据下载的工具, 满足金融数据科学
 家, 数据科学爱好者在数据获取方面的需求. 它的特点是利用 AKShare 获取的是基于可信任数据源
-发布的原始数据, 广大数据科学家可以利用原始数据进行再加工, 从而得出科学的结论."""
+发布的原始数据, 广大数据科学家可以利用原始数据进行再加工, 从而得出科学的结论.
+"""
 
 """
 版本更新记录:
@@ -1214,7 +1216,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 0.7.90: fix: fix stock_em_gpzy_pledge_ratio interface
 0.7.91: fix: fix stock_report_disclosure interface
 0.7.92: add: add fund_em_hk_fund_hist interface
-0.7.93: add: add fund_em_portfolio_hold interface
+0.7.93: add: add fund_portfolio_hold_em interface
 0.7.94: fix: fix futures_spot_price_previous interface
 0.7.95: add: add covid_19_trace interface
 0.7.96: fix: fix bond_spot_quote interface
@@ -1230,7 +1232,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 0.8.7: add: add stock_zh_a_tick_163_now interface
 0.8.8: fix: fix add PK to CZCE
 0.8.9: add: add futures delivery and spot interface
-0.8.10: fix: fix fund_em_portfolio_hold interface
+0.8.10: fix: fix fund_portfolio_hold_em interface
 0.8.11: add: add futures_to_spot_dce interface
 0.8.12: add: add futures_delivery_shfe interface
 0.8.13: fix: fix stock_us_daily interface
@@ -1338,7 +1340,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 0.9.16: add: add index_eri interface
 0.9.17: fix: fix futures_global_commodity_hist interface
 0.9.18: fix: fix stock_em_dxsyl interface
-0.9.19: add: add stock_legu_market_activity interface
+0.9.19: add: add stock_market_activity_legu interface
 0.9.20: fix: fix stock_individual_fund_flow_rank interface
 0.9.21: add: add index_cflp_price interface
 0.9.22: add: add index_cflp_volume interface
@@ -1347,7 +1349,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 0.9.25: add: add car_gasgoo_sale_rank interface
 0.9.26: fix: fix stock_hk_daily interface
 0.9.27: fix: fix stock_report_fund_hold interface
-0.9.28: add: add stock_legu_average_position interface
+0.9.28: add: add stock_average_position_legu interface
 0.9.29: add: add stock_em_qbzf interface
 0.9.30: add: add stock_em_pg interface
 0.9.31: fix: fix index_investing_global interface
@@ -1521,9 +1523,75 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 1.1.1: add: add index_investing_global_from_url interface
 1.1.2: add: add stock_us_pink_spot_em interface
 1.1.3: add: add stock_us_famous_spot_em interface
+1.1.4: fix: fix stock_average_position_legu interface
+1.1.5: add: add stock_rank_forecast_cninfo interface
+1.1.6: fix: fix futures_zh_minute_sina interface
+1.1.7: fix: fix covid_19_trace interface
+1.1.8: add: add stock_industry_pe_ratio_cninfo interface
+1.1.9: fix: fix stock_js_price interface
+1.1.10: fix: fix stock_em_hsgt_hold_stock interface
+1.1.11: fix: fix stock_fund_flow_concept interface
+1.1.12: fix: fix stock_fund_flow_industry interface
+1.1.13: add: add stock_dividents_cninfo interface
+1.1.14: fix: fix stock_fund_flow_concept interface
+1.1.15: add: add stock_new_gh_cninfo interface
+1.1.16: fix: fix stock_em_jgdy_detail interface
+1.1.17: fix: fix stock_em_jgdy_tj interface
+1.1.18: fix: fix stock_fund_flow_concept and stock_fund_flow_industry interface
+1.1.19: add: add stock_new_ipo_cninfo interface
+1.1.20: fix: fix stock_a_pe interface
+1.1.21 fix: fix setuptools==57.5.0 package
+1.1.22 fix: fix remove demjson package
+1.1.23 fix: fix update urllib3 package
+1.1.24 fix: fix email address
+1.1.25 add: add stock_hold_num_cninfo interface
+1.1.26 fix: fix stock_fund_flow_concept interface
+1.1.27 add: add stock_hold_control_cninfo interface
+1.1.28 fix: fix move project to AKFamily interface
+1.1.29 fix: fix urllib3>=1.25.8 package
+1.1.30 fix: fix stock_zh_index_hist_csindex interface
+1.1.31 add: add stock_hold_management_detail_cninfo interface
+1.1.32 add: add sw_index_representation_spot interface
+1.1.33 fix: fix sw_index_xxx interface
+1.1.34 fix: fix drewry_wci_index interface
+1.1.35 fix: fix fund_etf_category_sina interface
+1.1.36 fix: fix sw_index_daily_indicator interface
+1.1.37 fix: fix drewry_wci_index interface
+1.1.38 add: add futures_comm_info interface
+1.1.39 fix: fix futures_comm_info interface
+1.1.40 fix: fix remove covid_19_history interface
+1.1.41 add: add stock_zh_b_sina interface
+1.1.42 fix: fix stock_zh_a_minute interface
+1.1.43 add: add stock_cg_guarantee_cninfo interface
+1.1.44 fix: fix stock_zh_index_daily interface
+1.1.45 fix: fix stock_zh_index_daily_tx interface
+1.1.46 fix: fix remove watch_jinshi_fx interface
+1.1.47 fix: fix stock_em_jgdy_tj and stock_em_jgdy_detail interface
+1.1.48 fix: fix rename fund_em_portfolio_hold to fund_portfolio_hold_em interface
+1.1.49 fix: fix stock_em_jgdy_tj and stock_em_jgdy_detail interface
+1.1.50 add: add stock_cg_lawsuit_cninfo interface
+1.1.51 fix: fix stock_wc_hot_rank interface
+1.1.52 add: add stock_cg_equity_mortgage_cninfo interface
+1.1.53 fix: fix index_cni_detail_hist_adjust interface
+1.1.54 fix: fix stock_board_concept_hist_ths interface
+1.1.55 fix: fix stock_sina_lhb_ggtj and stock_sina_lhb_jgzz interface
+1.1.56 add: add fund_em_aum_hist interface
+1.1.57 fix: fix stock_sina_lhb_ggtj and stock_sina_lhb_jgzz interface
+1.1.58 add: add bond_treasure_issue_cninfo interface
+1.1.59 add: add bond_local_government_issue_cninfo interface
+1.1.60 add: add bond_corporate_issue_cninfo interface
+1.1.61 add: add bond_cov_issue_cninfo interface
+1.1.62 fix: fix bond_zh_us_rate interface
+1.1.63 add: add bond_cov_stock_issue_cninfo interface
+1.1.64 add: add fund_report_stock_cninfo interface
+1.1.65 fix: fix stock_notice_report interface
+1.1.66 add: add fund_report_industry_allocation_cninfo interface
+1.1.67 fix: fix stock_zh_index_hist_csindex interface
+1.1.68 fix: fix index_stock_cons_csindex interface
+1.1.69 add: add fund_scale_open_sina interface
 """
 
-__version__ = "1.1.3"
+__version__ = "1.1.69"
 __author__ = "Albert King"
 
 import sys
@@ -1533,6 +1601,89 @@ if sys.version_info < (3, 7):
     sys.exit(1)
 
 del sys
+
+"""
+基金规模
+"""
+from akshare.fund.fund_scale_sina import fund_scale_open_sina, fund_scale_close_sina, fund_scale_structured_sina
+
+"""
+巨潮资讯-数据中心-专题统计-基金报表
+"""
+from akshare.fund.fund_report_cninfo import fund_report_stock_cninfo, fund_report_industry_allocation_cninfo
+
+"""
+巨潮资讯-数据中心-专题统计-债券报表-债券发行
+"""
+from akshare.bond.bond_issue_cninfo import (
+    bond_treasure_issue_cninfo,
+    bond_local_government_issue_cninfo,
+    bond_corporate_issue_cninfo,
+    bond_cov_issue_cninfo,
+    bond_cov_stock_issue_cninfo,
+)
+
+"""
+巨潮资讯-数据中心-专题统计-公司治理-股权质押
+"""
+from akshare.stock.stock_cg_equity_mortgage import stock_cg_equity_mortgage_cninfo
+
+"""
+巨潮资讯-数据中心-专题统计-公司治理-公司诉讼
+"""
+from akshare.stock.stock_cg_lawsuit import stock_cg_lawsuit_cninfo
+
+"""
+巨潮资讯-数据中心-专题统计-公司治理-对外担保
+"""
+from akshare.stock.stock_cg_guarantee import stock_cg_guarantee_cninfo
+
+"""
+B 股
+"""
+from akshare.stock.stock_zh_b_sina import (
+    stock_zh_b_spot,
+    stock_zh_b_daily,
+    stock_zh_b_minute,
+)
+
+"""
+期货手续费
+"""
+from akshare.futures.futures_comm_qihuo import futures_comm_info
+
+"""
+实际控制人持股变动
+"""
+from akshare.stock.stock_hold_control_cninfo import (
+    stock_hold_control_cninfo,
+    stock_hold_management_detail_cninfo,
+)
+
+"""
+股东人数及持股集中度
+"""
+from akshare.stock.stock_hold_num_cninfo import stock_hold_num_cninfo
+
+"""
+新股过会
+"""
+from akshare.stock.stock_new_cninfo import stock_new_gh_cninfo, stock_new_ipo_cninfo
+
+"""
+个股分红
+"""
+from akshare.stock.stock_dividents_cninfo import stock_dividents_cninfo
+
+"""
+行业市盈率
+"""
+from akshare.stock.stock_industry_pe_cninfo import stock_industry_pe_ratio_cninfo
+
+"""
+投资评级
+"""
+from akshare.stock.stock_rank_forecast import stock_rank_forecast_cninfo
 
 """
 美股-知名美股
@@ -1683,7 +1834,7 @@ from akshare.economic.macro_germany import (
 """
 基金规模和规模趋势
 """
-from akshare.fund.fund_em_aum import fund_em_aum, fund_em_aum_trend
+from akshare.fund.fund_em_aum import fund_em_aum, fund_em_aum_trend, fund_em_aum_hist
 
 """
 CRIX 数据
@@ -1715,6 +1866,7 @@ from akshare.stock_feature.stock_em_hist import (
     stock_zh_a_hist_pre_min_em,
     stock_hk_hist_min_em,
     stock_us_hist_min_em,
+    stock_zh_b_spot_em,
 )
 
 """
@@ -1778,7 +1930,7 @@ from akshare.stock_feature.stock_zf_pg import stock_em_qbzf, stock_em_pg
 平均持仓
 """
 from akshare.stock_feature.stock_legu_average_position import (
-    stock_legu_average_position,
+    stock_average_position_legu,
 )
 
 """
@@ -1794,7 +1946,7 @@ from akshare.index.index_cflp import index_cflp_price, index_cflp_volume
 """
 赚钱效应分析
 """
-from akshare.stock_feature.stock_legu_market import stock_legu_market_activity
+from akshare.stock_feature.stock_legu_market import stock_market_activity_legu
 
 """
 浙江省排污权交易指数
@@ -1852,7 +2004,7 @@ from akshare.stock_feature.stock_lh_yybpm import (
 )
 
 """
-沪深A股公告
+沪深 A 股公告
 """
 from akshare.stock_fundamental.stock_notice import stock_notice_report
 
@@ -1950,7 +2102,7 @@ from akshare.futures.futures_to_spot import (
 """
 基金持仓
 """
-from akshare.fund.fund_em_portfolio import fund_em_portfolio_hold
+from akshare.fund.fund_em_portfolio import fund_portfolio_hold_em
 
 """
 债券概览
@@ -2454,8 +2606,8 @@ from akshare.event.franchise import franchise_china
 """
 债券-沪深债券
 """
-from akshare.bond.zh_bond_sina import bond_zh_hs_daily, bond_zh_hs_spot
-from akshare.bond.zh_bond_cov_sina import (
+from akshare.bond.bond_zh_sina import bond_zh_hs_daily, bond_zh_hs_spot
+from akshare.bond.bond_zh_cov_sina import (
     bond_zh_hs_cov_daily,
     bond_zh_hs_cov_spot,
     bond_cov_comparison,
@@ -2485,7 +2637,6 @@ from akshare.bond.china_repo import bond_repo_zh_tick
 from akshare.event.covid import (
     covid_19_trip,
     covid_19_trace,
-    covid_19_history,
 )
 
 """
@@ -2723,6 +2874,7 @@ from akshare.fortune.fortune_500 import fortune_rank, fortune_rank_eng
 申万行业一级
 """
 from akshare.index.index_sw import (
+    sw_index_representation_spot,
     sw_index_spot,
     sw_index_cons,
     sw_index_daily,
@@ -2772,11 +2924,6 @@ from akshare.air.air_hebei import air_quality_hebei
 timeanddate-日出和日落
 """
 from akshare.air.time_and_date import sunrise_daily, sunrise_monthly
-
-"""
-金十财经-实时监控
-"""
-from akshare.ws.js_ws_fx import watch_jinshi_fx
 
 """
 新浪-指数实时行情和历史行情

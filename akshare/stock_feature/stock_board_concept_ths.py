@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# /usr/bin/env python
+#!/usr/bin/env python
 """
 Date: 2021/7/12 16:48
 Desc: 同花顺-板块-概念板块
@@ -8,7 +8,7 @@ http://q.10jqka.com.cn/gn/detail/code/301558/
 import os
 from datetime import datetime
 
-import demjson
+from akshare.utils import demjson
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -234,7 +234,7 @@ if __name__ == '__main__':
     stock_board_concept_cons_ths_df = stock_board_concept_cons_ths(symbol="丙烯酸")
     print(stock_board_concept_cons_ths_df)
 
-    stock_board_concept_info_ths_df = stock_board_concept_info_ths(symbol="丙烯酸")
+    stock_board_concept_info_ths_df = stock_board_concept_info_ths(symbol="国家大基金持股")
     print(stock_board_concept_info_ths_df)
 
     stock_board_concept_hist_ths_df = stock_board_concept_hist_ths(start_year='2020', symbol="一带一路")

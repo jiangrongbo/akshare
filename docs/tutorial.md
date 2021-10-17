@@ -1,10 +1,10 @@
-# [AKShare](https://github.com/jindaxiang/akshare) 快速入门
+# [AKShare](https://github.com/akfamily/akshare) 快速入门
 
 ## 查看数据
 
 具体函数使用详情, 请查看 [AKShare 文档](https://akshare.readthedocs.io/) 每个接口的示例代码
 
-[AKShare](https://github.com/jindaxiang/akshare) 数据接口一览
+[AKShare](https://github.com/akfamily/akshare) 数据接口一览
 
 ```
  # 交易所期货数据
@@ -125,8 +125,6 @@
  "stock_zh_a_tick_tx"  # A 股票分笔行情数据(近2年)-腾讯
  "stock_zh_a_tick_tx_js"  # A 股票分笔行情数据(近2年)-腾讯-当日数据
  "stock_zh_a_tick_163"  # A 股票分笔行情数据(近5个交易日)-163
- # Websocket 实时监控
- "watch_jinshi_fx"  # 外汇实时接口
  # 世界各地区日出和日落数据-日
  "weather_daily"  # 每日日出和日落数据
  # 世界各地区日出和日落数据-月
@@ -150,6 +148,7 @@
  # 谷歌指数
  "google_index"  # 获取谷歌趋势指数
  # 申万行业指数
+ "sw_index_representation_spot"  # 申万市场表征数据
  "sw_index_spot"  # 获取申万一级实时行情
  "sw_index_cons"  # 获取申万一级板块成份
  "sw_index_daily"  # 获取申万一级历史行情
@@ -353,7 +352,6 @@
  "covid_19_csse_global_recovered"  # COVID-19-CSSE-全球治愈
  "covid_19_csse_us_death"  # COVID-19-CSSE-美国死亡
  "covid_19_csse_us_confirmed"  # COVID-19-CSSE-美国确诊
- "covid_19_history"  # COVID-19-所有历史数据(中文)
  # 百度迁徙地图接口
  "migration_area_baidu"  # 百度迁徙地图-迁入/出地详情
  "migration_scale_baidu"  # 百度迁徙地图-迁徙规模
@@ -483,6 +481,7 @@
  "stock_ipo_info"  # 股票新股
  "stock_history_dividend_detail"  # 分红配股
  "stock_history_dividend"  # 历史分红
+ "stock_dividents_cninfo"  # 个股历史分红
  "stock_restricted_shares"  # 限售解禁
  "stock_circulate_stock_holder"  # 流动股东
  "stock_fund_stock_holder"  # 基金持股
@@ -712,7 +711,7 @@
  # 浙江省排污权交易指数
  "index_eri"  # 浙江省排污权交易指数
  # 赚钱效应分析
- "stock_legu_market_activity"  # 赚钱效应分析
+ "stock_market_activity_legu"  # 赚钱效应分析
  # 中国公路物流运价指数
  "index_cflp_price"  # 中国公路物流运价指数
  # 中国公路物流运量指数
@@ -721,7 +720,7 @@
  "car_gasgoo_sale_rank"  # 盖世汽车-汽车行业制造企业数据库-销量数据
  "car_cpca_energy_sale"  # 乘联会-新能源细分市场-整体市场
  # 平均持仓
- "stock_legu_average_position"  # 平均持仓
+ "stock_average_position_legu"  # 平均持仓
  # 增发
  "stock_em_qbzf"  # 增发
  # 配股
@@ -760,6 +759,7 @@
  # 基金规模和规模趋势
  "fund_em_aum"  # 基金公司规模排名列表
  "fund_em_aum_trend"  # 基金市场管理规模走势图
+ "fund_em_aum_hist"  # 基金市场管理规模历史
  # 企业商品价格指数
  "macro_china_qyspjg"  # 企业商品价格指数
  "macro_china_fdi"  # 外商直接投资数据
@@ -863,6 +863,52 @@
  "stock_us_pink_spot_em"  # 美股-粉单市场
  # 美股-知名美股
  "stock_us_famous_spot_em"  # 美股-知名美股
+ # 股票-投资评级
+ "stock_rank_forecast_cninfo"  # 股票-投资评级
+ # 股票-行业市盈率
+ "stock_industry_pe_ratio_cninfo"  # 股票-行业市盈率
+ # 新股-新股过会
+ "stock_new_gh_cninfo"  # 新股-新股过会
+ # 新股-IPO
+ "stock_new_ipo_cninfo"  # 新股-IPO
+ # 股东人数及持股集中度
+ "stock_hold_num_cninfo"  # 股东人数及持股集中度
+ # 实际控制人持股变动
+ "stock_hold_control_cninfo"  # 实际控制人持股变动
+ # 高管持股变动明细
+ "stock_hold_management_detail_cninfo"  # 高管持股变动明细
+ # 期货手续费
+ "futures_comm_info"  # 期货手续费
+ # B 股实时行情数据和历史行情数据
+ "stock_zh_b_spot"  # B 股实时行情数据
+ "stock_zh_b_daily"  # B 股历史行情数据(日频)
+ "stock_zh_b_minute"  # B 股分时历史行情数据(分钟)
+ # 公司治理-对外担保
+ "stock_cg_guarantee_cninfo"  # 公司治理-对外担保
+ # 公司治理-公司诉讼
+ "stock_cg_lawsuit_cninfo"  # 公司治理-公司诉讼
+ # 公司治理-股权质押
+ "stock_cg_equity_mortgage_cninfo"  # 公司治理-股权质押
+ # 债券报表-债券发行-国债发行
+ "bond_treasure_issue_cninfo"  # 债券报表-债券发行-国债发行
+ # 债券报表-债券发行-地方债发行
+ "bond_local_government_issue_cninfo"  # 债券报表-债券发行-地方债
+ # 债券报表-债券发行-企业债发行
+ "bond_corporate_issue_cninfo"  # 债券报表-债券发行-企业债
+ # 债券报表-债券发行-可转债发行
+ "bond_cov_issue_cninfo"  # 债券报表-债券发行-可转债发行
+ # 债券报表-债券发行-可转债转股
+ "bond_cov_stock_issue_cninfo"  # 债券报表-债券发行-可转债转股
+ # 基金报表-基金重仓股
+ "fund_report_stock_cninfo"  # 基金报表-基金重仓股
+ # 公告大全-沪深 A 股公告
+ "stock_notice_report"  # 公告大全-沪深 A 股公告
+ # 基金报表-基金行业配置
+ "fund_report_industry_allocation_cninfo"  # 基金报表-基金行业配置
+ # 基金规模
+ "fund_scale_open_sina"  # 基金规模-开放式基金
+ "fund_scale_close_sina"  # 基金规模-封闭式基金
+ "fund_scale_structured_sina"  # 基金规模-分级子基金
 ```
 
 ## 案例演示

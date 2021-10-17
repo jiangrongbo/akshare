@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# /usr/bin/env python
+#!/usr/bin/env python
 """
 Date: 2021/5/21 20:14
 Desc: 新浪财经-美股实时行情数据和历史行情数据
@@ -204,11 +204,11 @@ def stock_us_fundamental(stock: str = "GOOGL", symbol: str = "info") -> pd.DataF
 
 
 if __name__ == "__main__":
-    # stock_us_stock_name_df = get_us_stock_name()
-    # print(stock_us_stock_name_df)
+    stock_us_stock_name_df = get_us_stock_name()
+    print(stock_us_stock_name_df)
 
-    # stock_us_spot_df = stock_us_spot()
-    # print(stock_us_spot_df)
+    stock_us_spot_df = stock_us_spot()
+    print(stock_us_spot_df)
 
     stock_us_daily_df = stock_us_daily(symbol="AMZN", adjust="")
     print(stock_us_daily_df)

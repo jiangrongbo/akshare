@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# /usr/bin/env python
+#!/usr/bin/env python
 """
 Date: 2021/2/7 15:35
 Desc: 股票基本面数据
@@ -342,6 +342,7 @@ if __name__ == '__main__':
 
     stock_history_dividend_df = stock_history_dividend()
     print(stock_history_dividend_df)
+
     stock_history_dividend_detail_df = stock_history_dividend_detail(indicator="分红", stock="600012", date="")
     print(stock_history_dividend_detail_df)
 

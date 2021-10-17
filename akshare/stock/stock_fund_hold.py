@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
-# /usr/bin/env python
+#!/usr/bin/env python
 """
 Date: 2021/9/4 15:09
 Desc: 东方财富网-数据中心-主力数据-基金持仓
 http://data.eastmoney.com/zlsj/2020-06-30-1-2.html
 """
-import demjson
+from akshare.utils import demjson
 import pandas as pd
 import requests
 
@@ -166,7 +166,7 @@ def stock_report_fund_hold_detail(symbol: str = "005827", date: str = "20201231"
 
 
 if __name__ == "__main__":
-    stock_report_fund_hold_df = stock_report_fund_hold(symbol="基金持仓", date="20210331")
+    stock_report_fund_hold_df = stock_report_fund_hold(symbol="基金持仓", date="20200630")
     print(stock_report_fund_hold_df)
 
     stock_report_fund_hold_df = stock_report_fund_hold(symbol="QFII持仓", date="20210331")

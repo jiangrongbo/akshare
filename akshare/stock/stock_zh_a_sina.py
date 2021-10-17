@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# /usr/bin/env python
+#!/usr/bin/env python
 """
 Date: 2021/9/8 19:28
 Desc: 新浪财经-A股-实时行情数据和历史行情数据(包含前复权和后复权因子)
@@ -8,7 +8,7 @@ https://finance.sina.com.cn/realstock/company/sh689009/nc.shtml
 import re
 import json
 
-import demjson
+from akshare.utils import demjson
 from py_mini_racer import py_mini_racer
 import pandas as pd
 import requests
@@ -30,7 +30,7 @@ def _get_zh_a_page_count() -> int:
     """
     所有股票的总页数
     http://vip.stock.finance.sina.com.cn/mkt/#hs_a
-    :return: 需要抓取的股票总页数
+    :return: 需要采集的股票总页数
     :rtype: int
     """
     res = requests.get(zh_sina_a_stock_count_url)
@@ -43,10 +43,10 @@ def _get_zh_a_page_count() -> int:
 
 def stock_zh_a_spot() -> pd.DataFrame:
     """
-    新浪财经- A 股
-    获取所有 A 股的实时行情数据; 重复运行本函数会被新浪暂时封 IP
+    新浪财经-所有 A 股的实时行情数据; 重复运行本函数会被新浪暂时封 IP
     http://vip.stock.finance.sina.com.cn/mkt/#qbgg_hk
-    :return: pandas.DataFrame
+    :return: 所有股票的实时行情数据
+    :rtype: pandas.DataFrame
     """
     big_df = pd.DataFrame()
     page_count = _get_zh_a_page_count()
@@ -339,7 +339,9 @@ def stock_zh_a_minute(
 
     if adjust == "qfq":
         temp_df[["date", "time"]] = temp_df["day"].str.split(" ", expand=True)
-        need_df = temp_df[temp_df["time"] == "15:00:00"]
+        # 处理没有最后一分钟的情况
+        need_df = temp_df[[True if "09:31:00" <= item <= "15:00:00" else False for item in temp_df["time"]]]
+        need_df.drop_duplicates(subset=['date'], keep='last', inplace=True)
         need_df.index = pd.to_datetime(need_df["date"])
         stock_zh_a_daily_qfq_df = stock_zh_a_daily(symbol=symbol, adjust="qfq")
         stock_zh_a_daily_qfq_df.index = pd.to_datetime(stock_zh_a_daily_qfq_df['date'])
@@ -355,7 +357,9 @@ def stock_zh_a_minute(
         return temp_df
     if adjust == "hfq":
         temp_df[["date", "time"]] = temp_df["day"].str.split(" ", expand=True)
-        need_df = temp_df[temp_df["time"] == "15:00:00"]
+        # 处理没有最后一分钟的情况
+        need_df = temp_df[[True if "09:31:00" <= item <= "15:00:00" else False for item in temp_df["time"]]]
+        need_df.drop_duplicates(subset=['date'], keep='last', inplace=True)
         need_df.index = pd.to_datetime(need_df["date"])
         stock_zh_a_daily_hfq_df = stock_zh_a_daily(symbol=symbol, adjust="hfq")
         stock_zh_a_daily_hfq_df.index = pd.to_datetime(stock_zh_a_daily_hfq_df['date'])
