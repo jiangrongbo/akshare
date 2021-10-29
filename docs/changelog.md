@@ -1161,7 +1161,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 
 0.4.50: fix: stock_em_sy_yq_list
 
-0.4.51: add: stock_em_tfp
+0.4.51: add: stock_tfp_em
 
 0.4.52: fix: covid.py
 
@@ -2233,7 +2233,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 
 0.9.91: fix: fix stock_em_yjbb interface
 
-0.9.92: fix: fix stock_em_tfp interface
+0.9.92: fix: fix stock_tfp_em interface
 
 0.9.93: fix: fix stock_zh_a_gdhs interface
 
@@ -2595,4 +2595,43 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 1.1.68 fix: fix index_stock_cons_csindex interface
 
 1.1.69 add: add fund_scale_open_sina interface
+
+1.1.70 add: add fund_scale_close_sina interface
+
+1.1.71 add: add fund_scale_structured_sina interface
+
+1.1.72 add: add fund_report_asset_allocation_cninfo interface
+
+1.1.73 add: add stock_zh_index_value_csindex interface
+
+1.1.74 fix: fix fund_em_etf_fund_info interface
+
+1.1.75 add: add index_value_hist_funddb interface
+
+1.1.76 fix: fix amac_fund_info interface
+
+1.1.77 fix: fix stock_zh_a_tick_163_now interface
+
+1.1.78 add: add stock_hsgt_individual_em interface
+
+1.1.79 fix: fix stock_em_jgdy_tj interface
+
+1.1.80 add: add support for Python 3.10 interface
+
+1.1.81 add: add stock_hsgt_individual_detail_em interface
+
+1.1.82 fix: fix stock_tfp_em interface
+    1. rename stock_em_tfp to stock_tfp_em
+    2. reformat output data type
+
+1.1.83 add: add stock_ipo_benefit_ths interface
+
+1.1.84 fix: fix stock_board_industry_index_ths interface
+    1. add start_date and end_date parameters
+
+1.1.85 fix: fix stock_em_hsgt_stock_statistics interface
+
+1.1.86 fix: fix stock_em_hsgt_stock_statistics interface
+
+1.1.87 fix: fix stock_em_hsgt_hist interface
 ```

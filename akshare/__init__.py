@@ -877,7 +877,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 0.4.48: add: stock_em_comment
 0.4.49: add: stock_em_hsgt
 0.4.50: fix: stock_em_sy_yq_list
-0.4.51: add: stock_em_tfp
+0.4.51: add: stock_tfp_em
 0.4.52: fix: covid.py
 0.4.53: fix: futures_hq_sina.py
 0.4.54: add: futures_foreign
@@ -1413,7 +1413,7 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 0.9.89: fix: fix fund_manager interface
 0.9.90: fix: fix stock_a_below_net_asset_statistics interface
 0.9.91: fix: fix stock_em_yjbb interface
-0.9.92: fix: fix stock_em_tfp interface
+0.9.92: fix: fix stock_tfp_em interface
 0.9.93: fix: fix stock_zh_a_gdhs interface
 0.9.94: add: add macro_china_qyspjg, macro_china_fdi interface
 0.9.95: fix: fix stock_board_concept_index_ths interface
@@ -1589,28 +1589,67 @@ amac_manager_cancelled_info # 中国证券投资基金业协会-信息公示-诚
 1.1.67 fix: fix stock_zh_index_hist_csindex interface
 1.1.68 fix: fix index_stock_cons_csindex interface
 1.1.69 add: add fund_scale_open_sina interface
+1.1.70 add: add fund_scale_close_sina interface
+1.1.71 add: add fund_scale_structured_sina interface
+1.1.72 add: add fund_report_asset_allocation_cninfo interface
+1.1.73 add: add stock_zh_index_value_csindex interface
+1.1.74 fix: fix fund_em_etf_fund_info interface
+1.1.75 add: add index_value_hist_funddb interface
+1.1.76 fix: fix amac_fund_info interface
+1.1.77 fix: fix stock_zh_a_tick_163_now interface
+1.1.78 add: add stock_hsgt_individual_em interface
+1.1.79 fix: fix stock_em_jgdy_tj interface
+1.1.80 add: add support for Python 3.10 interface
+1.1.81 add: add stock_hsgt_individual_detail_em interface
+1.1.82 fix: fix stock_tfp_em interface
+    1. rename stock_em_tfp to stock_tfp_em
+    2. reformat output data type
+1.1.83 add: add stock_ipo_benefit_ths interface
+1.1.84 fix: fix stock_board_industry_index_ths interface
+    1. add start_date and end_date parameters
+1.1.85 fix: fix stock_em_hsgt_stock_statistics interface
+1.1.86 fix: fix stock_em_hsgt_stock_statistics interface
+1.1.87 fix: fix stock_em_hsgt_hist interface
 """
 
-__version__ = "1.1.69"
+__version__ = "1.1.87"
 __author__ = "Albert King"
 
 import sys
 
 if sys.version_info < (3, 7):
-    print(f"AKShare {__version__} requires Python 3.7+")
+    print(f"AKShare {__version__} requires Python 3.7+ and 64 bit OS")
     sys.exit(1)
 
 del sys
 
 """
+沪深港通持股
+"""
+from akshare.stock_feature.stock_em_hsgt import stock_hsgt_individual_em, stock_hsgt_individual_detail_em
+
+"""
+指数估值
+"""
+from akshare.index.zh_stock_index_csindex import index_value_hist_funddb, index_value_name_funddb
+
+"""
 基金规模
 """
-from akshare.fund.fund_scale_sina import fund_scale_open_sina, fund_scale_close_sina, fund_scale_structured_sina
+from akshare.fund.fund_scale_sina import (
+    fund_scale_open_sina,
+    fund_scale_close_sina,
+    fund_scale_structured_sina,
+)
 
 """
 巨潮资讯-数据中心-专题统计-基金报表
 """
-from akshare.fund.fund_report_cninfo import fund_report_stock_cninfo, fund_report_industry_allocation_cninfo
+from akshare.fund.fund_report_cninfo import (
+    fund_report_stock_cninfo,
+    fund_report_industry_allocation_cninfo,
+    fund_report_asset_allocation_cninfo,
+)
 
 """
 巨潮资讯-数据中心-专题统计-债券报表-债券发行
@@ -2035,6 +2074,7 @@ from akshare.stock_feature.stock_board_industry_ths import (
     stock_board_industry_name_ths,
     stock_board_industry_info_ths,
     stock_board_industry_index_ths,
+    stock_ipo_benefit_ths,
 )
 
 """
@@ -2268,7 +2308,7 @@ from akshare.stock_feature.stock_sina_lhb import (
 """
 中证指数
 """
-from akshare.index.zh_stock_index_csindex import stock_zh_index_hist_csindex
+from akshare.index.zh_stock_index_csindex import stock_zh_index_hist_csindex, stock_zh_index_value_csindex
 
 """
 股票基金持仓数据
@@ -2505,7 +2545,7 @@ from akshare.futures.futures_foreign import futures_foreign_detail, futures_fore
 """
 stock-em-tfp
 """
-from akshare.stock_feature.stock_em_tfp import stock_em_tfp
+from akshare.stock_feature.stock_em_tfp import stock_tfp_em
 
 """
 stock-em-hsgt

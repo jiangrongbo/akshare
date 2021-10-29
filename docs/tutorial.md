@@ -445,7 +445,7 @@
  "stock_em_hsgt_hist"  # 沪深港通历史数据
  "stock_em_hsgt_board_rank"  # 板块排行
  # 两市停复牌
- "stock_em_tfp"  # 两市停复牌数据
+ "stock_tfp_em"  # 两市停复牌数据
  # 恐慌指数
  "index_vix"  # 恐慌指数
  # 中国油价
@@ -532,6 +532,7 @@
  "stock_report_fund_hold_detail"  # 个股-基金持股-明细
  # 中证指数
  "stock_zh_index_hist_csindex"  # 中证指数
+ "stock_zh_index_value_csindex"  # 中证指数-指数估值
  # A股龙虎榜
  "stock_sina_lhb_detail_daily"  # 龙虎榜-每日详情
  "stock_sina_lhb_ggtj"  # 龙虎榜-个股上榜统计
@@ -905,10 +906,18 @@
  "stock_notice_report"  # 公告大全-沪深 A 股公告
  # 基金报表-基金行业配置
  "fund_report_industry_allocation_cninfo"  # 基金报表-基金行业配置
+ "fund_report_asset_allocation_cninfo"  # 基金报表-基金资产配置
  # 基金规模
  "fund_scale_open_sina"  # 基金规模-开放式基金
  "fund_scale_close_sina"  # 基金规模-封闭式基金
  "fund_scale_structured_sina"  # 基金规模-分级子基金
+ # 指数估值
+ "index_value_hist_funddb"  # 指数估值
+ # 沪深港通持股
+ "stock_hsgt_individual_em"  # 沪深港通持股-具体股票
+ "stock_hsgt_individual_detail_em"  # 沪深港通持股-具体股票-详情
+ # IPO 受益股
+ "stock_ipo_benefit_ths"  # IPO 受益股
 ```
 
 ## 案例演示
